@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApiDemo.Models;
 
 namespace WebApiDemo.Controllers
 {
@@ -22,7 +23,7 @@ namespace WebApiDemo.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateShirt()
+        public IActionResult CreateShirt([FromForm] Shirt shirt)
         {
             return Ok("Shirt created");
         }
