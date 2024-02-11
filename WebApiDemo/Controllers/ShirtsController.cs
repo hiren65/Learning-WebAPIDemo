@@ -3,24 +3,25 @@
 namespace WebApiDemo.Controllers
 {
     [ApiController]
+    [Route("api/[controller]")]
     public class ShirtsController: ControllerBase
     {
 
         // [HttpGet("shirts")]
         [HttpGet]
-        [Route("shirts")]
+        //[Route("shirts")]
         public IActionResult GetShirts()
         {
             return Ok("Shirts");
         }
 
-        [HttpGet("shirts/{id}")]
+        [HttpGet("{id}")]
         public IActionResult GetShirt(int id)
         {
             return Ok($"Shirt {id}");
         }
 
-        [HttpPost("shirts")]
+        [HttpPost]
         public IActionResult CreateShirt()
         {
             return Ok("Shirt created");
@@ -32,7 +33,7 @@ namespace WebApiDemo.Controllers
             return Ok($"Shirt {id} updated");
         }
 
-        [HttpDelete("shirts/{id}")]
+        [HttpDelete("{id}")]
         public IActionResult DeleteShirt(int id)
         {
             return Ok($"Shirt {id} deleted");
