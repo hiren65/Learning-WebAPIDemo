@@ -3,22 +3,22 @@
 namespace WebApiDemo.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/[controller]")]  //Used Route attribute to define the route for the controller Template
     public class ShirtsController: ControllerBase
     {
 
         // [HttpGet("shirts")]
         [HttpGet]
-        //[Route("shirts")]
+        //[Route("shirts")] 
         public IActionResult GetShirts()
         {
             return Ok("Shirts");
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetShirt(int id)
+        public IActionResult GetShirt(int id, [FromHeader (Name = "color")] string color)
         {
-            return Ok($"Shirt {id}");
+            return Ok($"Shirt {id} {color}");
         }
 
         [HttpPost]
